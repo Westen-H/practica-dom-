@@ -1,0 +1,226 @@
+/* ===============================
+    RESET Y BOX-SIZING
+================================*/
+/* #region */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* #endregion */
+
+
+/* ===============================
+   BODY
+================================*/
+/* #region */
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* espacio entre main y footer */
+}
+
+/* #endregion */
+
+
+/* ===============================
+   FULL CONTAINER / BANNER
+================================*/
+/* #region */
+.full-container {
+    flex: 1; 
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding-top: 3rem;
+    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+    color: white;
+    z-index: 15;    
+    font-size: clamp(2rem, 5vw, 5rem);
+}
+
+/* #endregion */
+
+
+/* ===============================
+   IMAGENES
+================================*/
+/* #region */
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* #endregion */
+
+
+/* ===============================
+   MAIN CONTAINER
+================================*/
+/* #region */
+.main-container {
+    width: 95%;
+    margin: 0 auto;
+    padding: 0 15px;
+    flex: 1; /* ocupar espacio disponible */
+}
+
+.main-container > h1,
+.main-container > h2 {
+    text-align: center;
+    margin: 10px 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* #endregion */
+
+
+/* ===============================
+   FLEX CONTAINER
+================================*/
+/* #region */
+.flex-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 5px;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.flex-container > * {
+  flex: 1 1 100%;
+  
+ 
+}
+
+/* Imagen */
+.flex-container article img {
+  border-radius: 10px;
+  scale: 1; /* tamaño inicial de la imagen */
+  transition: scale 1s; /* transición suave de 1s al hacer zoom */ 
+  box-shadow: 10px 5px rgba(0, 0, 0, 6.5);;
+  margin-bottom: 0.5rem;
+}
+
+/* Tarjeta */
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Overlay */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0); /* inicialmente la superposición es transparente */
+  transition: background .3s; /* transición de 0.3s para el fondo */
+  z-index: 1; /* asegura que la superposición esté encima de la imagen pero debajo del texto */
+  height: 100%;
+  width: 100%;
+}
+
+/* Texto sobre imagen */
+.card-details {
+  position: absolute; /* texto sobre imagen */
+  top: 80%; /* debajo de div hidden para ocultarlo */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 0; /* inicialmente invisible */
+  transition: translate .6s, opacity .6s; /* transición de 0.6s para el movimiento y opacidad */
+  z-index: 2;
+  color: white;
+  padding: 1rem;
+}
+
+/* Hover */
+/* zoom img */
+.card:hover img {
+  scale: 1.5; /* aumentar el tamaño de la imagen con transición suave */
+}
+
+/* aparece y se desliza el texto */
+.card:hover .card-details {
+  translate: 0 -150%; /* mover el texto arriba un 200% de su propia altura */
+  opacity: 1; /* el texto se vuelve completamente visible */
+  /* Ambos cambios (translate y opacity) se animan en 0.6 segundos, haciendo que el texto se deslice y se desvanezca suavemente hacia la vista */
+}
+
+/* la superposición se oscurece */
+.card:hover .card-overlay {
+  background: rgba(0,0,0,0.6);
+}
+/* #endregion */
+
+/* ===============================
+   FOOTER
+================================*/
+/* #region */
+footer {
+    height: 70px;
+    width: 100%;
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    z-index: 5;
+    position: relative;
+    flex-shrink: 0; /*obligarlo al fondo*/
+}
+
+/* #endregion */
+
+
+/* ===============================
+   BREAKPOINT 768px
+================================*/
+/* #region */
+@media (min-width: 768px) {
+    .main-container {
+        width: 85%;
+    }
+    .flex-container > * {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+/* #endregion */
+
+
+/* ===============================
+   BREAKPOINT 992px
+================================*/
+/* #region */
+@media (min-width: 992px) {
+    .main-container {
+        width: 75%;
+    }
+    .flex-container > * {
+        flex-basis: calc(25% - 20px);
+    }
+}
+
+/* #endregion */
+
+
+/* ===============================
+   BREAKPOINT 1200px
+================================*/
+/* #region */
+@media (min-width: 1200px) {
+    .main-container {
+        max-width: 1300px;
+    }
+}
+/* #endregion */
