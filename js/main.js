@@ -1,9 +1,9 @@
 /*
     Primero declarar la IIFE (para guardar los datos).
 
-    Después crear las variables que la usan.
+    Capturar el DOM.
 
-    Luego capturar el DOM.
+    Después crear las variables que la usan.
 
     Finalmente:, declarar funciones y llamar a todo.
 */
@@ -13,7 +13,7 @@
 /*==========================*/
     // #region: IIFE (Datos: imagenes y lista)
 /*========================== */
-    // Para evitar llenar el ambito global con las variable; esconderlas / encampsular / guardar... las variables dentro de una función IIFE;
+    // Para preparar información en memoria antes de manipular el DOM / simular respuesta API / evitar llenar el ambito global; esconderlas / encampsular / guardar... las variables dentro de una función IIFE; mantiene el ámbito global limpio
 const datosProyecto = (function() {
     const imgBanners = [
         {
@@ -97,17 +97,6 @@ const imgViajes = [
 
 
 
-            /* VARIABLE */
-/* ==========================*/
-    //#region:  Acceder a las imagenes y lista y guardar llamada
-/* ==========================*/
-const arrBanners = datosProyecto.getImgRandon1();
-const arrViajes = datosProyecto.getImgRandon2();
-const arraySelectList = datosProyecto.getSelect();
-
-//#endregion de variables elementos
-
-
 
             /* CAPTURAR ELEMENTOS DOM */
 /* ==========================*/
@@ -137,6 +126,20 @@ console.log({
     elHeader, elFooter, elBannerSection, elBannerImg, elRecomendadosSection,elRecomendadosContainer, elRecomendadosArticles, elDestinosSection, elSelectDestinos
 })
 //#endregion
+
+
+
+
+            /* VARIABLE */
+/* ==========================*/
+    //#region:  Acceder a las imagenes y lista y guardar llamada
+/* ==========================*/
+const arrBanners = datosProyecto.getImgRandon1();
+const arrViajes = datosProyecto.getImgRandon2();
+const arraySelectList = datosProyecto.getSelect();
+
+//#endregion de variables elementos
+
 
 
             /* FUNCTION */
